@@ -48,7 +48,7 @@ docker compose up -d
 
 Esto levanta los tres servicios juntos:
 - **Frontend** → http://localhost
-- **Backend**  → http://localhost:3000
+- **Backend**  → http://localhost:3000/api/health
 - **DB**       → puerto 5432 (conectar con DBeaver)
 
 ### 4. Verificar que todo funciona
