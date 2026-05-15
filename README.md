@@ -23,13 +23,13 @@ Gana quien acumule mas puntos al final del torneo.
 
 ---
 
-## 🚀 Como levantar el proyecto
+## Como levantar el proyecto
 
 ### 1. Clonar el repositorio
 
 ```bash
 git clone https://github.com/PieroJacinto/prode-mundial-2026-camejo.git
-cd prode-mundial-2026
+cd prode-mundial-2026-camejo
 ```
 
 ### 2. Crear el archivo de variables de entorno
@@ -40,24 +40,33 @@ cp .env.example .env
 
 Editar el `.env` con los valores reales (pedirle al equipo).
 
-### 3. Levantar los contenedores
+### 3. Primera vez (o cuando se agregan dependencias nuevas)
+
+```bash
+docker compose up -d --build
+```
+
+### 4. El resto del tiempo
 
 ```bash
 docker compose up -d
 ```
 
-Esto levanta los tres servicios juntos:
-- **Frontend** → http://localhost
-- **Backend**  → http://localhost:3000/api/health
-- **DB**       → puerto 5432 (conectar con DBeaver)
+El backend usa nodemon: cada vez que guardes un archivo,
+el servidor se reinicia solo sin necesidad de reconstruir la imagen.
 
-### 4. Verificar que todo funciona
+### 5. Ver los logs en tiempo real
 
 ```bash
-# Ver que los tres contenedores esten corriendo
-docker compose ps
+docker compose logs -f          # todos los servicios
+docker compose logs -f backend  # solo el backend
+```
 
-# Verificar que el backend y la DB estan conectados
+### 6. Verificar que todo funciona
+
+Abrir en el navegador o correr en la terminal:
+
+```bash
 curl http://localhost:3000/api/health
 ```
 
@@ -66,19 +75,12 @@ Respuesta esperada:
 { "status": "ok", "db": "conectada" }
 ```
 
----
-
-## Como bajar el proyecto
+### 7. Bajar los contenedores
 
 ```bash
-# Bajar los contenedores (los datos de la DB se conservan)
-docker compose down
-
-# Bajar los contenedores y borrar los datos de la DB
-docker compose down -v
+docker compose down        # conserva los datos de la DB
+docker compose down -v     # borra tambien los datos de la DB
 ```
-
----
 
 ## Comandos utiles
 
