@@ -1,3 +1,4 @@
+require('dotenv').config()
 // importamos express que es el framework para poder crear el servidor y manekjar las rutas de la api. 
 const express = require('express')
 // creamos la instancia de la aplicacion express (lo ejecutamos) para poder usar sus distintos metodos y funcionalidades
@@ -10,7 +11,7 @@ const routes = require('./routes/index')
 // importamos las rutas de la api,  todas van a etsar bajo el prefijo /api
 app.use('/api', routes)
 // arrancamos el servidor en el puerto 3000, va a quedar escuchando los requests entrantes
-const PORT = 3000
+const PORT = process.env.BACKEND_PORT || 3000
 app.listen(PORT, () => {
   console.log(`Backend corriendo en puerto ${PORT}`)
 })
