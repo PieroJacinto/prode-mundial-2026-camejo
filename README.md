@@ -40,13 +40,21 @@ cp .env.example .env
 
 Editar el `.env` con los valores reales (pedirle al equipo).
 
-### 3. Primera vez (o cuando se agregan dependencias nuevas)
+### 3. Instalar dependencias del backend
+
+```bash
+cd backend
+npm install
+cd ..
+```
+
+### 4. Primera vez (o cuando se agregan dependencias nuevas)
 
 ```bash
 docker compose up -d --build
 ```
 
-### 4. El resto del tiempo
+### 5. El resto del tiempo
 
 ```bash
 docker compose up -d
@@ -55,14 +63,14 @@ docker compose up -d
 El backend usa nodemon: cada vez que guardes un archivo,
 el servidor se reinicia solo sin necesidad de reconstruir la imagen.
 
-### 5. Ver los logs en tiempo real
+### 6. Ver los logs en tiempo real
 
 ```bash
 docker compose logs -f          # todos los servicios
 docker compose logs -f backend  # solo el backend
 ```
 
-### 6. Verificar que todo funciona
+### 7. Verificar que todo funciona
 
 Abrir en el navegador o correr en la terminal:
 
@@ -75,7 +83,7 @@ Respuesta esperada:
 { "status": "ok", "db": "conectada" }
 ```
 
-### 7. Bajar los contenedores
+### 8. Bajar los contenedores
 
 ```bash
 docker compose down        # conserva los datos de la DB
@@ -99,7 +107,7 @@ docker compose up -d --build
 
 ---
 
-## 🌿 Flujo de trabajo con Git
+## Flujo de trabajo con Git
 
 ```bash
 # 1. Crear una branch para tu tarea
