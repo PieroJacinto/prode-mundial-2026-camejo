@@ -15,4 +15,6 @@ COPY . .
 # el conteneorr va a escuchar el puerto 3000, puerto donde va a correr el back
 EXPOSE 3000
 # el comando que se ejecuta cuando arranca el contenedor. es decir va a aejcutar nuestro entry pont al back, app.js
-CMD ["node", "src/app.js"]
+# en desarrollo usamos nodemon para que reinicie el servidor automaticamente
+# cuando detecta cambios en el codigo, sin necesidad de reconstruir la imagen
+CMD ["npm", "run", "dev"]
