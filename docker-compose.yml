@@ -7,6 +7,8 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      # esta variable postgres_db es importante, 
+      # porq le dice a la imagen oficial de postgres que cree una db con ese nombre al iniciar el contenedor por primera vez
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "${POSTGRES_PORT}:5432"
@@ -28,11 +30,11 @@ services:
       - "${BACKEND_PORT}:3000"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}      
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_HOST: db
       POSTGRES_PORT: 5432
-    # ek deoends_on le esta diciendo a docker que levante el contenedor de la db antes que elk bakcend
+    # el depends_on le esta diciendo a docker que levante el contenedor de la db antes que elk bakcend
     # para que el backend pueda conectarse a la db sin problemas, 
     # sino el backend intentaria conectarse a la db antes de que este levantada y daria error
     depends_on:
@@ -41,9 +43,10 @@ services:
       - prode-net
 
   frontend:
-  # igual q bbbackend consturimos la imagen a partir del dockerfile que esta en la carpeta frontend
+  # igual q bckend consturimos la imagen a partir del dockerfile que esta en la carpeta frontend
     build: ./frontend
     # puerto 80 estandar para front , lo mapeo al puerto 80 para poder acceder escribiendo http://localhost en el navegador
+    ports:
       - "80:80"
     networks:
       - prode-net
