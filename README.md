@@ -104,7 +104,17 @@ Respuesta esperada:
 { "status": "ok", "db": "conectada" }
 ```
 
-### 9. Bajar los contenedores
+### 9. Flujo del dia a dia
+
+```bash
+# Al arrancar a trabajar
+docker compose up -d
+
+# Al terminar el dia (libera recursos)
+docker compose down
+```
+
+### 10. Bajar los contenedores
 
 ```bash
 docker compose down        # conserva los datos de la DB
@@ -136,6 +146,15 @@ docker compose up -d
 ```
 
 ---
+
+## Vistas disponibles
+
+| URL | Descripcion |
+|---|---|
+| `http://localhost` | Pagina de inicio |
+| `http://localhost/pages/login.html` | Iniciar sesion |
+| `http://localhost/pages/register.html` | Registrarse |
+| `http://localhost/pages/usuarios.html` | Lista de jugadores |
 
 ---
 
