@@ -1,0 +1,55 @@
+:root {
+  /* Colores principales — inspirados en el branding oficial FIFA 2026 */
+  --color-primary:        #1a1a2e;
+  --color-secondary:      #16213e;
+  --color-accent:         #c9a84c;
+  --color-accent-hover:   #e6c46a;
+
+  /* Colores paises host */
+  --color-canada:         #e61d25;
+  --color-mexico:         #3cac3b;
+  --color-usa:            #2a398d;
+
+  /* Textos */
+  --color-text:           #ffffff;
+  --color-text-muted:     #a0a0b0;
+
+  /* Estados */
+  --color-success:        #3cac3b;
+  --color-error:          #e61d25;
+
+  /* Fondos y bordes */
+  --color-background:     #0f0f1a;
+  --color-border:         #2a2a4a;
+  --color-white:          #ffffff;
+
+  /* Tipografia */
+  --font-family:          'Arial', sans-serif;
+  --font-size-base:       16px;
+
+  /* Espaciado */
+  --spacing-xs:           4px;
+  --spacing-sm:           8px;
+  --spacing-md:           16px;
+  --spacing-lg:           32px;
+  --spacing-xl:           64px;
+
+  /* Bordes */
+  --border-radius-sm:     4px;
+  --border-radius-md:     8px;
+  --border-radius-lg:     16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  padding: var(--spacing-lg);
+}
