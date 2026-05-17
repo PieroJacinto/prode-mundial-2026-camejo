@@ -60,8 +60,9 @@ docker compose up -d --build
 docker compose up -d
 ```
 
-El backend usa nodemon: cada vez que guardes un archivo,
-el servidor se reinicia solo sin necesidad de reconstruir la imagen.
+El frontend y el backend tienen volumenes sincronizados: cualquier cambio que hagas
+en los archivos se refleja automaticamente sin necesidad de reconstruir la imagen.
+El backend ademas usa nodemon, que reinicia el servidor solo al detectar cambios.
 
 ### 6. Ver los logs en tiempo real
 
@@ -88,6 +89,7 @@ Respuesta esperada:
 ```bash
 docker compose down        # conserva los datos de la DB
 docker compose down -v     # borra tambien los datos de la DB
+rm -rf .volumes            # resetea la DB completamente (usar con cuidado)
 ```
 
 ## Comandos utiles
@@ -103,6 +105,14 @@ docker compose logs -f frontend
 
 # Reconstruir las imagenes (usar cuando se cambia el codigo)
 docker compose up -d --build
+
+# Si el build no alcanza y algo sigue fallando, forzar recreacion completa
+docker compose up -d --build --force-recreate
+
+# Resetear la DB (cuando se modifica el init.sql)
+docker compose down
+rm -rf .volumes
+docker compose up -d
 ```
 
 ---
