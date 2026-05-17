@@ -3,12 +3,13 @@ require('dotenv').config()
 const express = require('express')
 // agrego cors para manejar los permisos de acceso
 const cors = require('cors')
+// creamos la instancia de la aplicacion express (lo ejecutamos) para poder usar sus distintos metodos y funcionalidades
+const app = express()
+
 // le doy permiso a localhost para desarrollo, en prod cambiar al url del host del front
 app.use(cors({
   origin: 'http://localhost'
 }))
-// creamos la instancia de la aplicacion express (lo ejecutamos) para poder usar sus distintos metodos y funcionalidades
-const app = express()
 // este es un middkeware global , que le dice a express que todos los requests que nos lleguen van a ser json
 // entonces exppres automaticamente parsea el body de los req y los convierto a objet js para q podamos trabajar
 app.use(express.json())
