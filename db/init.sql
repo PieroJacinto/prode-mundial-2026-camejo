@@ -7,3 +7,9 @@ CREATE TABLE IF NOT EXISTS usuarios (
   saldo_virtual  INT           DEFAULT 1000,
   created_at     TIMESTAMP     DEFAULT NOW()
 );
+
+-- Datos de prueba
+INSERT INTO usuarios (nombre, email, password) VALUES
+  ('Juan Perez',   'juan@gmail.com',   '1234'),
+  ('Maria Lopez',  'maria@gmail.com',  '1234'),
+  ('Carlos Gomez', 'carlos@gmail.com', '1234');
