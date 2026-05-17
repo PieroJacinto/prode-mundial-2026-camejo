@@ -33,8 +33,7 @@ services:
       # cuando guardas un archivo, nodemon lo detecta y reinicia el servidor
       - ./backend:/app
       # evita que el volumen anterior pise el node_modules del contenedor
-      # cada entorno tiene su propio node_modules
-      - /app/node_modules
+          
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}      

@@ -1,0 +1,108 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #2a2a2a 0%, #121212 70%);
+}
+
+.auth__card {
+  background-color: var(--color-surface);
+  border: 1px solid #3a3a3a;
+  border-top: 3px solid var(--color-accent); 
+  border-radius: var(--border-radius-lg);
+  padding: 48px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8);
+}
+.auth__titulo {
+  color: var(--color-text);      
+  font-size: 26px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.auth__subtitulo {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.auth__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.auth__label {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.auth__input {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  color: var(--color-text);
+  font-size: 15px;
+  padding: 12px var(--spacing-md);
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.auth__input:focus {
+  border-color: var(--color-border-focus);
+}
+
+.auth__boton {
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  color: #121212;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: var(--spacing-md);
+  padding: 14px var(--spacing-md);
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.auth__boton:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.auth__link {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  margin-top: var(--spacing-md);
+  text-align: center;
+}
+
+.auth__link a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.auth__link a:hover {
+  text-decoration: underline;
+}
+
+.auth__error {
+  color: var(--color-error);
+  font-size: 13px;
+  margin-top: var(--spacing-sm);
+  text-align: center;
+  display: none;
+}
+
+.auth__error--visible {
+  display: block;
+}
