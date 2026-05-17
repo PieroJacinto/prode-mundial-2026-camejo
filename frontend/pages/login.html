@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login — Prode Mundial 2026</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+  </head>
+  <body>
+    <main class="auth">
+      <div class="auth__card">
+        <h1 class="auth__titulo">Iniciar sesion</h1>
+        <p class="auth__subtitulo">Ingresa tus datos para continuar</p>
+
+        <div class="auth__grupo">
+          <label class="auth__label" for="email">Email</label>
+          <input
+            class="auth__input"
+            type="email"
+            id="email"
+            placeholder="tu@email.com"
+          />
+        </div>
+
+        <div class="auth__grupo">
+          <label class="auth__label" for="password">Password</label>
+          <input
+            class="auth__input"
+            type="password"
+            id="password"
+            placeholder="••••••••"
+          />
+        </div>
+
+        <p class="auth__error" id="error"></p>
+
+        <button class="auth__boton" id="btn-login">Ingresar</button>
+
+        <p class="auth__link">
+          ¿No tenes cuenta? <a href="./register.html">Registrate</a>
+        </p>
+      </div>
+    </main>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>
