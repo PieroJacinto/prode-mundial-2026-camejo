@@ -3,30 +3,38 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: radial-gradient(ellipse at top, #2a2a2a 0%, #121212 70%);
+  background: radial-gradient(ellipse at top, var(--color-surface-raised) 0%, var(--color-background) 70%);
 }
 
 .auth__card {
   background-color: var(--color-surface);
-  border: 1px solid #3a3a3a;
-  border-top: 3px solid var(--color-accent); 
+  border: var(--border-width-md) solid var(--color-border-card);
+  border-top: var(--border-width-xl) solid var(--color-accent);
   border-radius: var(--border-radius-lg);
-  padding: 48px;
+  padding: var(--spacing-xl);
   width: 100%;
-  max-width: 480px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8);
+  max-width: 100%;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.8);
 }
+
+@media (min-width: 480px) {
+  .auth__card {
+    max-width: 30rem;
+    padding: var(--spacing-xl);
+  }
+}
+
 .auth__titulo {
-  color: var(--color-text);      
-  font-size: 26px;
-  margin-bottom: 8px;
+  color: var(--color-text);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-xs);
   text-align: center;
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
 }
 
 .auth__subtitulo {
   color: var(--color-text-muted);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   text-align: center;
   margin-bottom: var(--spacing-lg);
 }
@@ -40,18 +48,18 @@
 
 .auth__label {
   color: var(--color-text-muted);
-  font-size: 12px;
+  font-size: var(--font-size-xs);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: var(--letter-spacing-wide);
 }
 
 .auth__input {
   background-color: var(--color-surface-raised);
-  border: 1px solid var(--color-border);
+  border: var(--border-width-md) solid var(--color-border);
   border-radius: var(--border-radius-sm);
   color: var(--color-text);
-  font-size: 15px;
-  padding: 12px var(--spacing-md);
+  font-size: var(--font-size-sm);
+  padding: 0.75rem var(--spacing-md);
   outline: none;
   transition: border-color 0.2s;
   width: 100%;
@@ -65,12 +73,12 @@
   background-color: var(--color-accent);
   border: none;
   border-radius: var(--border-radius-sm);
-  color: #121212;
+  color: var(--color-background);
   cursor: pointer;
-  font-size: 15px;
-  font-weight: bold;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
   margin-top: var(--spacing-md);
-  padding: 14px var(--spacing-md);
+  padding: 0.875rem var(--spacing-md);
   transition: background-color 0.2s;
   width: 100%;
 }
@@ -81,7 +89,7 @@
 
 .auth__link {
   color: var(--color-text-muted);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   margin-top: var(--spacing-md);
   text-align: center;
 }
@@ -97,7 +105,7 @@
 
 .auth__error {
   color: var(--color-error);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   margin-top: var(--spacing-sm);
   text-align: center;
   display: none;
