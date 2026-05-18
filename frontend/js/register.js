@@ -27,7 +27,7 @@ const validations = [
   }
 ]
 
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
   const formulario  = document.getElementById('formulario')
   const errorServer = document.getElementById('error-server')
 
@@ -85,4 +85,4 @@ window.onload = () => {
       errorServer.classList.add('auth__error--visible')
     }
   })
-}
+})
