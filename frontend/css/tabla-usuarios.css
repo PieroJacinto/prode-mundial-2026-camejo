@@ -1,9 +1,9 @@
 .titulo {
-  font-size: 22px;
+  font-size: var(--font-size-lg);
   color: var(--color-text);
   margin-bottom: var(--spacing-lg);
-  font-weight: bold;
-  letter-spacing: 0.5px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wider);
 }
 
 .tabla-usuarios {
@@ -12,33 +12,33 @@
   background-color: var(--color-surface);
   border-radius: var(--border-radius-md);
   overflow: hidden;
-  border: 1px solid var(--color-border);
+  border: var(--border-width-md) solid var(--color-border);
 }
 
 .tabla-usuarios__header {
-  background-color: #252525;
-  border-bottom: 2px solid var(--color-accent);
+  background-color: var(--color-surface-header);
+  border-bottom: var(--border-width-lg) solid var(--color-accent);
 }
 
 .tabla-usuarios__header .tabla-usuarios__celda {
-  color: #cccccc;
-  font-size: 11px;
-  font-weight: bold;
+  color: var(--color-text-subtle);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  padding: 14px var(--spacing-md);
+  letter-spacing: var(--letter-spacing-wide);
+  padding: 0.875rem var(--spacing-md);
 }
 
 .tabla-usuarios__celda {
-  padding: 14px var(--spacing-md);
+  padding: 0.875rem var(--spacing-md);
   text-align: left;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--border-width-md) solid var(--color-border);
   color: var(--color-text);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
 }
 
 .tabla-usuarios__fila {
-  border-left: 3px solid transparent;
+  border-left: var(--border-width-xl) solid transparent;
 }
 
 .tabla-usuarios__fila:nth-child(even) {
@@ -47,10 +47,59 @@
 
 .tabla-usuarios__fila:hover {
   background-color: rgba(240, 180, 41, 0.06);
-  border-left: 3px solid var(--color-accent);
+  border-left: var(--border-width-xl) solid var(--color-accent);
   cursor: pointer;
 }
 
 .tabla-usuarios__fila:last-child .tabla-usuarios__celda {
   border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .tabla-usuarios {
+    border: none;
+    background-color: transparent;
+    display: block;
+  }
+
+  .tabla-usuarios__header {
+    display: none;
+  }
+
+  tbody {
+    display: block;
+  }
+
+  .tabla-usuarios__fila {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface);
+    border: var(--border-width-md) solid var(--color-border);
+    border-top: var(--border-width-lg) solid var(--color-accent);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-left: var(--border-width-xl) solid transparent;
+  }
+
+  .tabla-usuarios__fila:hover {
+    border-left: var(--border-width-xl) solid var(--color-accent);
+  }
+
+  .tabla-usuarios__celda {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: none;
+    padding: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+  }
+
+  .tabla-usuarios__celda::before {
+    content: attr(data-label);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    font-weight: var(--font-weight-bold);
+  }
 }
