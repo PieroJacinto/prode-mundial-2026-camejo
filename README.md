@@ -42,7 +42,7 @@ Editar el `.env` con los valores reales (pedirle al equipo).
 
 ### 3. Instalar dependencias del backend
 
-> ⚠️ Siempre instalar desde WSL, no desde Git Bash, para que el node_modules sea compatible con Linux.
+> ⚠️ Si estas desde Windows, siempre instalar desde WSL, no desde Git Bash, para que el node_modules sea compatible con Linux.
 
 
 ```bash
