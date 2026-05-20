@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro — Prode Mundial 2026</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+
+  <main class="auth">
+    <div class="auth__card">
+
+      <h1 class="auth__titulo">Crear cuenta</h1>
+      <p class="auth__subtitulo">Ingresa tus datos para registrarte</p>
+
+      <form id="formulario">
+
+        <div class="auth__grupo">
+          <label class="auth__label" for="nombre">Nombre</label>
+          <input class="auth__input" type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+          <span class="auth__error" id="error-nombre"></span>
+        </div>
+
+        <div class="auth__grupo">
+          <label class="auth__label" for="email">Email</label>
+          <input class="auth__input" type="email" id="email" name="email" placeholder="tu@email.com">
+          <span class="auth__error" id="error-email"></span>
+        </div>
+
+        <div class="auth__grupo">
+          <label class="auth__label" for="password">Password</label>
+          <input class="auth__input" type="password" id="password" name="password" placeholder="••••••••">
+          <span class="auth__error" id="error-password"></span>
+        </div>
+
+        <p class="auth__error" id="error-server"></p>
+
+        <button class="auth__boton" type="submit">Crear cuenta</button>
+
+      </form>
+
+      <p class="auth__link">
+        ¿Ya tenes cuenta? <a href="./login.html">Iniciá sesion</a>
+      </p>
+
+    </div>
+  </main>
+
+  <script src="../js/register.js"></script>
+</body>
+
+</html>

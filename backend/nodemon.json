@@ -1,0 +1,7 @@
+
+{
+    "_comentario": "agego legacyWatch y polling por problema con windods q no detecta los cambios automaticamente",
+    "legacyWatch": true,
+    "polling": true,
+    "pollingInterval": 1000
+}

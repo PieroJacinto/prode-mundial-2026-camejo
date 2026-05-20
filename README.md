@@ -42,6 +42,9 @@ Editar el `.env` con los valores reales (pedirle al equipo).
 
 ### 3. Instalar dependencias del backend
 
+> ⚠️ Siempre instalar desde WSL, no desde Git Bash, para que el node_modules sea compatible con Linux.
+
+
 ```bash
 cd backend
 npm install
@@ -60,19 +63,37 @@ docker compose up -d --build
 docker compose up -d
 ```
 
-El backend usa nodemon: cada vez que guardes un archivo,
-el servidor se reinicia solo sin necesidad de reconstruir la imagen.
 
-### 6. Ver los logs en tiempo real
+El frontend y el backend tienen volumenes sincronizados: cualquier cambio que hagas
+en los archivos se refleja automaticamente sin necesidad de reconstruir la imagen.
+El backend ademas usa nodemon, que reinicia el servidor solo al detectar cambios.
+
+### 6. Cuando instalas una dependencia nueva
+
+> ⚠️ Siempre desde WSL.
+
+```bash
+cd backend
+npm install nombre-paquete
+cd ..
+docker compose up -d --build
+```
+
+### 7. Ver los logs en tiempo real
 
 ```bash
 docker compose logs -f          # todos los servicios
 docker compose logs -f backend  # solo el backend
 ```
 
-### 7. Verificar que todo funciona
+### 8. Verificar que todo funciona
 
-Abrir en el navegador o correr en la terminal:
+Abrir en el navegador:
+```bash
+http://localhost/pages/usuarios.html
+```
+
+O verificar el backend desde la terminal:
 
 ```bash
 curl http://localhost:3000/api/health
@@ -83,11 +104,22 @@ Respuesta esperada:
 { "status": "ok", "db": "conectada" }
 ```
 
-### 8. Bajar los contenedores
+### 9. Flujo del dia a dia
+
+```bash
+# Al arrancar a trabajar
+docker compose up -d
+
+# Al terminar el dia (libera recursos)
+docker compose down
+```
+
+### 10. Bajar los contenedores
 
 ```bash
 docker compose down        # conserva los datos de la DB
-docker compose down -v     # borra tambien los datos de la DB
+docker compose down -v     # borra tambien los datos de la DB(usar cuando falla node_modules)
+rm -rf .volumes            # resetea la DB completamente (usar con cuidado)
 ```
 
 ## Comandos utiles
@@ -103,9 +135,39 @@ docker compose logs -f frontend
 
 # Reconstruir las imagenes (usar cuando se cambia el codigo)
 docker compose up -d --build
+
+# Si el build no alcanza y algo sigue fallando, forzar recreacion completa
+docker compose up -d --build --force-recreate
+
+# Resetear la DB (cuando se modifica el init.sql)
+docker compose down
+rm -rf .volumes
+docker compose up -d
 ```
 
 ---
+
+## Vistas disponibles
+
+| URL | Descripcion |
+|---|---|
+| `http://localhost` | Pagina de inicio |
+| `http://localhost/pages/login.html` | Iniciar sesion |
+| `http://localhost/pages/register.html` | Registrarse |
+| `http://localhost/pages/usuarios.html` | Lista de jugadores |
+
+---
+
+## Endpoints de la API
+
+| Metodo | Endpoint | Descripcion | Auth requerida |
+|---|---|---|---|
+| GET | `/api/health` | Verificar que el servidor funciona | No |
+| GET | `/api/usuarios` | Listar todos los usuarios | No |
+| POST | `/api/auth/register` | Registrar usuario | No |
+| POST | `/api/auth/login` | Login | No |
+| POST | `/api/auth/logout` | Logout | Si |
+| GET | `/api/auth/me` | Ver usuario de la sesion activa | Si |
 
 ## Flujo de trabajo con Git
 

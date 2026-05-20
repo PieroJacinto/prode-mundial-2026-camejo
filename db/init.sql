@@ -24,3 +24,8 @@ CREATE TABLE IF NOT EXISTS partidos (
   fecha            TIMESTAMP NOT NULL,
   finalizado       BOOLEAN DEFAULT FALSE -- arranca en falso (no se jugó)
 );
+-- Datos de prueba
+INSERT INTO usuarios (nombre, email, password) VALUES
+  ('Juan Perez',   'juan@gmail.com',   '1234'),
+  ('Maria Lopez',  'maria@gmail.com',  '1234'),
+  ('Carlos Gomez', 'carlos@gmail.com', '1234');

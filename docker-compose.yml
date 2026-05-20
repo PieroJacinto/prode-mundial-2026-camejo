@@ -33,8 +33,7 @@ services:
       # cuando guardas un archivo, nodemon lo detecta y reinicia el servidor
       - ./backend:/app
       # evita que el volumen anterior pise el node_modules del contenedor
-      # cada entorno tiene su propio node_modules
-      - /app/node_modules
+          
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}      
@@ -55,6 +54,10 @@ services:
     # puerto 80 estandar para front , lo mapeo al puerto 80 para poder acceder escribiendo http://localhost en el navegador
     ports:
       - "80:80"
+
+    # agrego volume para no rebuildear cada vez q cambio archivos
+    volumes:
+      - ./frontend:/usr/share/nginx/html
     networks:
       - prode-net
 # aca definimos la red compartida entre los 3 contenedores, para que se puedan comunicar entre si
