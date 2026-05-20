@@ -10,10 +10,10 @@ const cargarUsuarios = async () => {
     usuarios.forEach(usuario => {
       tabla.innerHTML += `
         <tr class="tabla-usuarios__fila">
-          <td class="tabla-usuarios__celda">${usuario.nombre}</td>
-          <td class="tabla-usuarios__celda">${usuario.email}</td>
-          <td class="tabla-usuarios__celda">${usuario.puntos_totales}</td>
-          <td class="tabla-usuarios__celda">${usuario.saldo_virtual}</td>
+          <td class="tabla-usuarios__celda" data-label="Nombre">${usuario.nombre}</td>
+          <td class="tabla-usuarios__celda" data-label="Email">${usuario.email}</td>
+          <td class="tabla-usuarios__celda" data-label="Puntos">${usuario.puntos_totales}</td>
+          <td class="tabla-usuarios__celda" data-label="Saldo">${usuario.saldo_virtual}</td>
         </tr>
       `
     })

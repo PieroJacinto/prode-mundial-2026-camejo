@@ -19,7 +19,7 @@ const validations = [
   }
 ]
 
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
   const formulario  = document.getElementById('formulario')
   const errorServer = document.getElementById('error-server')
 
@@ -55,7 +55,7 @@ window.onload = () => {
       const respuesta = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',  // lo necesioamos  para enviar y recibir cookies de sesion
+        credentials: 'include',
         body: JSON.stringify({
           email:    formulario.email.value.trim(),
           password: formulario.password.value.trim()
@@ -70,7 +70,6 @@ window.onload = () => {
         return
       }
 
-      // si todo salio bien, redirigimos a la vistra de todos los usuarios
       window.location.href = './usuarios.html'
 
     } catch (error) {
@@ -78,4 +77,4 @@ window.onload = () => {
       errorServer.classList.add('auth__error--visible')
     }
   })
-}
+})
