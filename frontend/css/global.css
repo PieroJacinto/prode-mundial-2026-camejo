@@ -79,6 +79,5 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   background-color: var(--color-background);
-  color: var(--color-text);
-  padding: var(--spacing-lg);
+  color: var(--color-text);  
 }
