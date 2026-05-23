@@ -1,47 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login — Prode Mundial 2026</title>
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/auth.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — Prode Mundial 2026</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar--prode navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar__logo-link" href="/index.html">Prode Mundial 2026</a>
 
-  <main class="auth">
-    <div class="auth__card">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMenu"
+          aria-controls="navbarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <h1 class="auth__titulo">Iniciar sesion</h1>
-      <p class="auth__subtitulo">Ingresa tus datos para continuar</p>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="navbar__link nav-link" href="/index.html">Fixture</a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar__link nav-link" href="/pages/ranking.html"
+                >Ranking</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="navbar__link nav-link" href="/pages/bracket.html"
+                >Eliminatorias</a
+              >
+            </li>
+          </ul>
 
-      <form id="formulario" novalidate>
-
-        <div class="auth__grupo">
-          <label class="auth__label" for="email">Email</label>
-          <input class="auth__input" type="email" id="email" name="email" placeholder="tu@email.com">
-          <span class="auth__error" id="error-email"></span>
+          <div class="navbar__auth d-flex gap-2" id="navbar-auth"></div>
         </div>
+      </div>
+    </nav>
 
-        <div class="auth__grupo">
-          <label class="auth__label" for="password">Password</label>
-          <input class="auth__input" type="password" id="password" name="password" placeholder="••••••••">
-          <span class="auth__error" id="error-password"></span>
-        </div>
+    <main class="auth">
+      <div class="auth__card">
+        <h1 class="auth__titulo">Iniciar sesion</h1>
+        <p class="auth__subtitulo">Ingresa tus datos para continuar</p>
 
-        <p class="auth__error" id="error-server"></p>
+        <form id="formulario" novalidate>
+          <div class="auth__grupo">
+            <label class="auth__label" for="email">Email</label>
+            <input
+              class="auth__input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="tu@email.com"
+            />
+            <span class="auth__error" id="error-email"></span>
+          </div>
 
-        <button class="auth__boton" type="submit">Ingresar</button>
+          <div class="auth__grupo">
+            <label class="auth__label" for="password">Password</label>
+            <input
+              class="auth__input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="••••••••"
+            />
+            <span class="auth__error" id="error-password"></span>
+          </div>
 
-      </form>
+          <p class="auth__error" id="error-server"></p>
 
-      <p class="auth__link">
-        ¿No tenes cuenta? <a href="./register.html">Registrate</a>
-      </p>
+          <button class="auth__boton" type="submit">Ingresar</button>
+        </form>
 
-    </div>
-  </main>
+        <p class="auth__link">
+          ¿No tenes cuenta? <a href="./register.html">Registrate</a>
+        </p>
+      </div>
+    </main>
 
-  <script src="../js/login.js"></script>
-</body>
+    <script src="../js/login.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
