@@ -1,4 +1,4 @@
-#aca definimos los contenedores q vamos a levantar, cada servicio es un contenedor
+# aca definimos los contenedores q vamos a levantar, cada servicio es un contenedor
 services:
 
   db:
@@ -7,24 +7,21 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      # esta variable postgres_db es importante, 
+      # esta variable postgres_db es importante,
       # porq le dice a la imagen oficial de postgres que cree una db con ese nombre al iniciar el contenedor por primera vez
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "${POSTGRES_PORT}:5432"
     volumes:
-    # el primer volumen es para persisitr los datos de la db de postgres localmente
+      # persiste los datos de postgres localmente
       - ./.volumes/postgres/data:/var/lib/postgresql/data
-    # el segundo volumen es para ejecutar el script de inicializacion de la db al levantar el contenedor, 
-    # que ejecuta el script init.sql que se encuentra en la carpeta db/init.sql
+      # ejecuta el init.sql al crear el contenedor por primera vez
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
-    # conectamos el contenedor a la red prode-net, que es la red que vamos a usar para que los contenedores se comuniquen entre si
     networks:
       - prode-net
 
   backend:
-  # aca usamos build en vez de image porq no usamos una imagen prefabricada, sino que construimos la imagen 
-  # a partir del dockerfile que esta en la carpeta backend
+    # construimos la imagen a partir del Dockerfile en la carpeta backend
     build: ./backend
     ports:
       - "${BACKEND_PORT}:3000"
@@ -32,36 +29,32 @@ services:
       # sincroniza el codigo local con el contenedor en tiempo real
       # cuando guardas un archivo, nodemon lo detecta y reinicia el servidor
       - ./backend:/app
-      - /app/node_modules
       # evita que el volumen anterior pise el node_modules del contenedor
       - /app/node_modules
-          
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}      
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_HOST: db
       POSTGRES_PORT: 5432
-    # el depends_on le esta diciendo a docker que levante el contenedor de la db antes que elk bakcend
-    # para que el backend pueda conectarse a la db sin problemas, 
-    # sino el backend intentaria conectarse a la db antes de que este levantada y daria error
+    # levanta la db antes que el backend
     depends_on:
       - db
     networks:
       - prode-net
 
   frontend:
-  # igual q bckend consturimos la imagen a partir del dockerfile que esta en la carpeta frontend
+    # construimos la imagen a partir del Dockerfile en la carpeta frontend
     build: ./frontend
-    # puerto 80 estandar para front , lo mapeo al puerto 80 para poder acceder escribiendo http://localhost en el navegador
+    # puerto 80 estandar, accesible desde http://localhost
     ports:
       - "80:80"
-
-    # agrego volume para no rebuildear cada vez q cambio archivos
+    # sincroniza el frontend local con el contenedor
     volumes:
       - ./frontend:/usr/share/nginx/html
     networks:
       - prode-net
-# aca definimos la red compartida entre los 3 contenedores, para que se puedan comunicar entre si
+
+# red compartida entre los 3 contenedores
 networks:
   prode-net:
