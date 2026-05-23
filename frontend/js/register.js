@@ -22,7 +22,7 @@ const validations = [
     inputName: 'password',
     validations: [
       { validator: isEmpty,     errorMsg: 'La password es obligatoria' },
-      { validator: isMinLen(6), errorMsg: 'La password debe tener al menos 6 caracteres' }
+      { validator: isMinLen(4), errorMsg: 'La password debe tener al menos 4 caracteres' }
     ]
   }
 ]
@@ -78,7 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return
       }
 
-      window.location.href = './login.html'
+      // registro exitoso, ir al login
+      window.location.href = '/pages/login.html'
 
     } catch (error) {
       errorServer.textContent = 'Error de conexion con el servidor'
