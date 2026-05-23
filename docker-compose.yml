@@ -31,7 +31,6 @@ services:
     volumes:
       # sincroniza el codigo local con el contenedor en tiempo real
       # cuando guardas un archivo, nodemon lo detecta y reinicia el servidor
-      - volumes:
       - ./backend:/app
       - /app/node_modules
       # evita que el volumen anterior pise el node_modules del contenedor
