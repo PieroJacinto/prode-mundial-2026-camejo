@@ -69,9 +69,9 @@ CREATE TABLE IF NOT EXISTS apuestas_especiales (
 -- =============================================
 
 INSERT INTO usuarios (nombre, email, password) VALUES
-  ('Juan Perez',   'juan@gmail.com',   '1234'),
-  ('Maria Lopez',  'maria@gmail.com',  '1234'),
-  ('Carlos Gomez', 'carlos@gmail.com', '1234');
+  ('Juan Perez',   'juan@gmail.com',   '$2b$10$X066tq1JaRhE9pytNqJki.n65DRBVTcY4x8wgeFyHCAy4S04r5dBC'),
+  ('Maria Lopez',  'maria@gmail.com',  '$2b$10$X066tq1JaRhE9pytNqJki.n65DRBVTcY4x8wgeFyHCAy4S04r5dBC'),
+  ('Carlos Gomez', 'carlos@gmail.com', '$2b$10$X066tq1JaRhE9pytNqJki.n65DRBVTcY4x8wgeFyHCAy4S04r5dBC');
 
 -- FASE DE GRUPOS — 72 partidos
 -- Horarios en UTC-3 (Argentina)
