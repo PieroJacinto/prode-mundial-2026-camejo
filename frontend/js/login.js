@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return
       }
 
-      window.location.href = './usuarios.html'
+      window.location.href = '/index.html'
 
     } catch (error) {
       errorServer.textContent = 'Error de conexion con el servidor'

@@ -5,7 +5,7 @@ const usuariosController = {
   getAll: async (req, res) => {
     try {
       const result = await pool.query(
-        'SELECT id, nombre, email, puntos_totales, saldo_virtual FROM usuarios'
+        'SELECT id, nombre, email, matecitos FROM usuarios ORDER BY matecitos DESC'
       )
       res.json(result.rows)
     } catch (error) {

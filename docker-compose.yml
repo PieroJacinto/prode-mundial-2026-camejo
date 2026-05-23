@@ -34,6 +34,7 @@ services:
       - ./backend:/app
       - /app/node_modules
       # evita que el volumen anterior pise el node_modules del contenedor
+      - /app/node_modules
           
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
